@@ -24,4 +24,4 @@ I suggest that you begin by typing:
      cd feedback-app
      npm start
 
-# Happy hacking!
+# Happy hacking! Created with love & dedication By Ashutosh Satpathy &hearts;
