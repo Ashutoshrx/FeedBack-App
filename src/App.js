@@ -1,4 +1,11 @@
+import Header from './components/Header';
+import FeedbackItem from './components/FeedbackItem';
 function App() {
-    return <h1>I am coming form App component</h1>
+  return (
+    <>
+      <Header />
+      <FeedbackItem />
+    </>
+  );
 }
-export default App
+export default App;
