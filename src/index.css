@@ -138,7 +138,9 @@ input:focus {
   top: 10px;
   right: 20px;
   cursor: pointer;
-  background: rgba(240, 76, 119, 0.774);
+  font-size:19px;
+  color: red;
+  background-color:black;
   border: none;
 }
 
