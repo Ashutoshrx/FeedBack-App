@@ -20,7 +20,6 @@ function FeedbackItem({item}) {
 
 FeedbackItem.prototype={
   item:PropTypes.objectOf(FeedbackData),
-  // item2:PropTypes.object.isRequired,
 }
 
 export default FeedbackItem;
