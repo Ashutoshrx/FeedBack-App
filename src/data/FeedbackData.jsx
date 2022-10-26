@@ -6,12 +6,12 @@ const FeedbackData = [
   },
   {
     id: 2,
-    rating: 5,
+    rating: 9,
     text: 'Investment Information and Credit Rating Agency of India Limited (ICRA)',
   },
   {
-    id: 2,
-    rating: 5,
+    id: 3,
+    rating: 8,
     text: 'There are six credit rating agencies registered under SEBI namely, CRISIL, ICRA, CARE, SMERA, Fitch India and Brickwork Ratings.',
   },
 ];
