@@ -14,7 +14,7 @@ function FeedbackStats({ feedback }) {
         return (
             <div className='feedback-stats'>
                 <h4>{feedback.length} Reviews</h4>
-                <h4>Average Ratings : {avgOfIds}</h4>
+                <h4>Average Ratings : {avgOfIds.toFixed(2)}</h4>
             </div>
         );
     }

@@ -14,8 +14,8 @@ function Header({innerText,bgColor,textColor}) {
 }
 
 Header.defaultProps={
-    innerText:'Feedback Form',
-    bgColor:'midnightblue',
+    innerText:'Feedback UI',
+    bgColor:'rgba(0,0,0,5)',
     textColor:'magenta'
 }
 export default Header
