@@ -11,9 +11,7 @@ function FeedbackList({ feedback }) {
     return (
         <div className="feedback-list">
             {feedback.map(element => (
-                <li key={element.id}>
-                    <FeedbackItem ratingData={element.rating} textData={element.text} />
-                </li>
+                <FeedbackItem key={element.id} item={element} />
             ))
             }
         </div >

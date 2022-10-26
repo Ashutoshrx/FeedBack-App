@@ -1,17 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
+import Card from './shared/Card';
+import PropTypes from 'prop-types'
+import FeedbackData from '../data/FeedbackData';
 
-function FeedbackItem({textData,ratingData}) {
+
+function FeedbackItem({item}) {
   //Use of UseState which is a react hook
-  const [rating, setRating] = useState(ratingData);
-  const [text, setText] = useState(textData);
+  const [rating, setRating] = useState(item.rating);
+  const [text, setText] = useState(item.text);
 
   return (
-    <div className="card">
+    <Card>
       <div className="num-display">{rating}</div>
       <div className="text-display">{text}</div>
-    </div>
+    </Card>
   );
+}
+
+FeedbackItem.prototype={
+  item:PropTypes.objectOf(FeedbackData),
+  // item2:PropTypes.object.isRequired,
 }
 
 export default FeedbackItem;
