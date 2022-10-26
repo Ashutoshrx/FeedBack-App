@@ -6,12 +6,19 @@ import FeedbackList from './components/FeedbackList';
 function App() {
   //Use of UseState which is a react hook
   const [feedBackData, setFeedBackData] = useState(FeedbackData);
-  
+  const deleteFeedbackData = (id) => {
+    console.log(`The feedback data has been deleted with id ${id}`);
+    setFeedBackData(feedBackData.filter((fd) => fd.id !== id));
+  };
+
   return (
     <>
       <Header />
       <div className="container">
-        <FeedbackList feedback={feedBackData} />
+        <FeedbackList
+          feedback={feedBackData}
+          handleDelete={deleteFeedbackData}
+        />
       </div>
     </>
   );

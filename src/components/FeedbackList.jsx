@@ -3,17 +3,19 @@ import FeedbackItem from './FeedbackItem';
 import PropTypes from 'prop-types';
 
 
-function FeedbackList({ feedback }) {
+function FeedbackList({ feedback, handleDelete }) {
     if (!feedback || feedback.length === 0) {
         return (
-            <p>No FeedBack Yet</p>
+            <p style={{ color: 'red' }}>No FeedBack Yet</p>
         );
     }
-
     return (
         <div className="feedback-list">
             {feedback.map(element => (
-                <FeedbackItem key={element.id} item={element} />
+                <FeedbackItem
+                    key={element.id}
+                    item={element}
+                    handleDelete={(id) => handleDelete(id)} />
             ))
             }
         </div >
