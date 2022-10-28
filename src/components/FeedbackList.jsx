@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 function FeedbackList({ feedback, handleDelete }) {
     if (!feedback || feedback.length === 0) {
         return (
-            <p style={{ color: 'red' }}>No FeedBack Yet</p>
+            <h1 style={{ color: 'red' }}>NO FEEDBACK YET</h1>
         );
     }
     return (
