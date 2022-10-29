@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Do clone this app by:
+git clone https://github.com/Ashutoshrx/FeedBack-App.git
+
 ## Available Scripts
 
 In the project directory, you can run:
