@@ -13,15 +13,19 @@ function App() {
     setFeedBackData(feedBackData.filter((fd) => fd.id !== id));
   };
 
-  // const appendFeedbackData = () => {
-  //   console.log(`The feedback data has been appended with id`);
-  // };
+  const appendFeedbackData = (newFeedbackData) => {
+    let fbData = [newFeedbackData, ...feedBackData];
+    setFeedBackData(fbData);
+  };
 
   return (
     <>
       <Header />
       <div className="container">
-        <FeedbackForm feedback={feedBackData}/>
+        <FeedbackForm
+          feedback={feedBackData}
+          handleAppend={appendFeedbackData}
+        />
         <FeedbackStats feedback={feedBackData} />
         <FeedbackList
           feedback={feedBackData}

@@ -16,6 +16,6 @@ function Header({innerText,bgColor,textColor}) {
 Header.defaultProps={
     innerText:'Feedback UI',
     bgColor:'rgba(0,0,0,5)',
-    textColor:'magenta'
+    textColor:'#e41650'
 }
 export default Header

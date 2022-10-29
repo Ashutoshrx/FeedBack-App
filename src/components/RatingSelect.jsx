@@ -5,7 +5,7 @@ function RatingSelect({ select }) {
 
     const changeInput = (e) => {
         setSelected(+e.currentTarget.value);
-        select(+e.currentTarget.value)
+        select(+e.currentTarget.value);
         // '+' symbol used to change the type of the input from string to number
     };
 
