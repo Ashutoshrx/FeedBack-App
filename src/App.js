@@ -12,9 +12,9 @@ function App() {
     // console.log(`The feedback data has been deleted with id ${id}`);
     setFeedBackData(feedBackData.filter((fd) => fd.id !== id));
   };
-  // const appendFeedbackData = ()=>{
+
+  // const appendFeedbackData = () => {
   //   console.log(`The feedback data has been appended with id`);
-  //   // 
   // };
 
   return (

@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button({ children, disabled, version }) {
+function Button({ children, disabled, version, type }) {
     return (
         <button disabled={disabled}
+            type={type}
             className={`btn btn-${version}`} >
             {children}
         </button >
