@@ -31,7 +31,7 @@ function FeedbackForm({ handleAppend }) {
         }
         setTextInput(textInput.target.value);
     };
-    
+
     const appendData = () => {
         const newFeedbackData = {
             'id': uuid4(),

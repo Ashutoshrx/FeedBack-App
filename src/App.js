@@ -4,6 +4,9 @@ import { useState } from 'react';
 import FeedbackList from './components/FeedbackList';
 import FeedbackStats from './components/FeedbackStats';
 import FeedbackForm from './components/FeedbackForm';
+import { Routes, Route } from 'react-router-dom';
+import AboutPage from './pages/AboutPage';
+import AboutPageLink from './components/AboutPageLink';
 
 function App() {
   //Use of UseState which is a react hook
@@ -17,8 +20,9 @@ function App() {
     let fbData = [newFeedbackData, ...feedBackData];
     setFeedBackData(fbData);
   };
-
-  return (
+  /*
+Before adding routes
+return (
     <>
       <Header />
       <div className="container">
@@ -33,6 +37,39 @@ function App() {
         />
       </div>
     </>
+  );*/
+  // After adding routes
+  return (
+    <Routes>
+      <Route
+        path="/about"
+        element={
+          <div className="container">
+            <AboutPage />
+          </div>
+        }
+      ></Route>
+      <Route
+        path="/"
+        element={
+          <>
+            <Header />
+            <div className="container">
+              <FeedbackForm
+                feedback={feedBackData}
+                handleAppend={appendFeedbackData}
+              />
+              <FeedbackStats feedback={feedBackData} />
+              <FeedbackList
+                feedback={feedBackData}
+                handleDelete={deleteFeedbackData}
+              />
+            </div>
+            <AboutPageLink />
+          </>
+        }
+      ></Route>
+    </Routes>
   );
 }
 export default App;
