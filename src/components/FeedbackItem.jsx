@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import Card from './shared/Card';
 import PropTypes from 'prop-types';
 import FeedbackData from '../data/FeedbackData';
+import FeedbackContext from '../context/FeedbackContext';
 
-function FeedbackItem({ item, handleDelete }) {
+function FeedbackItem({ item }) {
   //Use of UseState which is a react hook
   const [rating, setRating] = useState(item.rating);
   const [text, setText] = useState(item.text);
+  const { deleteFeedbackData } = useContext(FeedbackContext);
 
   return (
     <Card>
       <div className="num-display">{rating}</div>
-      <button onClick={() => handleDelete(item.id)} className="close">&#128473;</button>
+      <button onClick={() => deleteFeedbackData(item.id)} className="close">&#128473;</button>
       <div className="text-display">{text}</div>
     </Card>
   );

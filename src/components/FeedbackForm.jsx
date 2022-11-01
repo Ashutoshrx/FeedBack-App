@@ -1,13 +1,16 @@
 import { v4 as uuid4 } from 'uuid';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import RatingSelect from './RatingSelect';
 import Button from './shared/Button';
 import Card from './shared/Card';
 import PropTypes from 'prop-types';
+import FeedbackContext from '../context/FeedbackContext';
 
 
-function FeedbackForm({ handleAppend }) {
+function FeedbackForm() {
+
+    const { appendFeedbackData } = useContext(FeedbackContext);
 
     const [rating, setRating] = useState();
     const [textInput, setTextInput] = useState('');
@@ -38,7 +41,7 @@ function FeedbackForm({ handleAppend }) {
             'rating': rating,
             'text': textInput
         };
-        handleAppend(newFeedbackData);
+        appendFeedbackData(newFeedbackData);
     };
 
     return (
