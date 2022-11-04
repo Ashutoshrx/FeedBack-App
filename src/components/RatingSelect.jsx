@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
 function RatingSelect({ select }) {
     const [selected, setSelected] = useState();
+
+    const { feedbackEdit } = useContext(FeedbackContext);
+
+    useEffect(() => {
+        setSelected(feedbackEdit.item.rating);
+    }, [feedbackEdit]);
 
     const changeInput = (e) => {
         setSelected(+e.currentTarget.value);
@@ -51,7 +58,7 @@ function RatingSelect({ select }) {
                 <input type="radio" id='num10' name='rating' value='10' checked={selected === 10} onChange={changeInput} />
                 <label htmlFor="num10">10</label>
             </li>
-        </ul>
+        </ul >
     );
 }
 

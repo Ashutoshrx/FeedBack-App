@@ -137,11 +137,11 @@ input:focus {
 .edit {
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 10px;
   cursor: pointer;
   font-size:19px;
-  color: red;
-  background-color:black;
+  color: rgb(239, 0, 40);
+  background-color:white;
   border: none;
 }
 

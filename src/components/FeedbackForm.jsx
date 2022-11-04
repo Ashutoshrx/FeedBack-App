@@ -1,21 +1,27 @@
 import { v4 as uuid4 } from 'uuid';
 import React, { useContext } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import RatingSelect from './RatingSelect';
 import Button from './shared/Button';
 import Card from './shared/Card';
-import PropTypes from 'prop-types';
 import FeedbackContext from '../context/FeedbackContext';
 
 
 function FeedbackForm() {
 
-    const { appendFeedbackData } = useContext(FeedbackContext);
-
+    const { appendFeedbackData, feedbackEdit, updateFeedbackData } = useContext(FeedbackContext);
     const [rating, setRating] = useState();
     const [textInput, setTextInput] = useState('');
     const [isDisabled, setIsDisabled] = useState(true);
     const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        if (feedbackEdit.isEdit === true) {
+            setIsDisabled(false);
+            setRating(feedbackEdit.item.rating);
+            setTextInput(feedbackEdit.item.text);
+        }
+    }, [feedbackEdit]);
 
     const changeTextInput = (textInput) => {
         if (textInput.target.value === null) {
@@ -41,26 +47,36 @@ function FeedbackForm() {
             'rating': rating,
             'text': textInput
         };
-        appendFeedbackData(newFeedbackData);
+        feedbackEdit.isEdit === true ? updateFeedbackData(feedbackEdit.item.id, newFeedbackData) : appendFeedbackData(newFeedbackData);
+        setTextInput('');
     };
 
     return (
-        <Card>
-            <h2>How would rate this website?</h2>
-            <RatingSelect select={(rating) => { setRating(rating); }} />
-            <div className="input-group" >
-                <input onChange={changeTextInput} type="text" className='message'
-                    placeholder='Please write a review' />
-                <Button type="submit" disabled={isDisabled} onAppend={appendData}>Submit Review</Button>
-            </div>
-            <div className="message">{message && message}</div>
 
-        </Card>
+        feedbackEdit.isEdit === true ?
+            <Card>
+                <h2>How would you want to update your rating?</h2>
+                <RatingSelect select={(rating) => { setRating(rating); }} defaultChecked={feedbackEdit.item.rating} />
+                <div className="input-group" >
+                    <input onChange={changeTextInput} type="text" className='message'
+                        defaultValue={feedbackEdit.item.text} />
+                    <Button type="submit" disabled={isDisabled} onAppend={appendData}>Update Review</Button>
+                </div>
+                <div className="message">{message && message}</div>
+            </Card> :
+            <Card>
+                <h2>How would  you rate this website?</h2>
+                <RatingSelect select={(rating) => { setRating(rating); }} />
+                <div className="input-group" >
+                    <input onChange={changeTextInput} type="text" className='message'
+                        placeholder='Please write a review' />
+                    <Button type="submit" disabled={isDisabled} onAppend={appendData}>Submit Review</Button>
+                </div>
+                <div className="message">{message && message}</div>
+
+            </Card>
     );
 }
 
-FeedbackForm.propTypes = {
-    handleAppend: PropTypes.func.isRequired,
-};
 
 export default FeedbackForm;

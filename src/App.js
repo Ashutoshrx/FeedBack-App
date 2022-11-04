@@ -8,7 +8,6 @@ import AboutPageLink from './components/AboutPageLink';
 import { FeedbackProvider } from './context/FeedbackContext';
 
 function App() {
-  // After adding routes
   return (
     <FeedbackProvider>
       <Routes>
