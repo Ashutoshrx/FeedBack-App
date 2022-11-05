@@ -6,6 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 git clone https://github.com/Ashutoshrx/FeedBack-App.git
 
 ## Available Scripts
+In the project directory, you can run the below command for running the backend server along with the front-end UI:
+
+### `npm run dev`
 
 In the project directory, you can run:
 
