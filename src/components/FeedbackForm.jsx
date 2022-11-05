@@ -66,10 +66,10 @@ function FeedbackForm() {
             </Card> :
             <Card>
                 <h2>How would  you rate this website?</h2>
-                <RatingSelect select={(rating) => { setRating(rating); }} />
+                <RatingSelect  select={(rating) => { setRating(rating); }} />
                 <div className="input-group" >
                     <input onChange={changeTextInput} type="text" className='message'
-                        placeholder='Please write a review' />
+                        placeholder='Please write a review' value={textInput}/>
                     <Button type="submit" disabled={isDisabled} onAppend={appendData}>Submit Review</Button>
                 </div>
                 <div className="message">{message && message}</div>

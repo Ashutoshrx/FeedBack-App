@@ -1,25 +1,24 @@
+import { useEffect } from 'react';
 import { createContext, useState } from 'react';
 
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
-  const [feedback, setFeedback] = useState([
-    {
-      id: 1,
-      rating: 10,
-      text: 'This is feedback Item 1',
-    },
-    {
-      id: 2,
-      rating: 6,
-      text: 'This is feedback item 2',
-    },
-    {
-      id: 3,
-      rating: 8,
-      text: 'This is feedback item 3',
-    },
-  ]);
+  const [feedback, setFeedback] = useState([]);
+
+  useEffect(() => {
+    fetchFeedbackData();
+  }, []);
+
+  // Fetching Feedback data from the server
+  const fetchFeedbackData = async () => {
+    fetch(`http://localhost:5000/feedback?_sort=id&_order=desc`)
+      .then((response) => response.json())
+      .then((data) => {
+        setFeedback(data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
@@ -56,7 +55,6 @@ export const FeedbackProvider = ({ children }) => {
   const appendFeedbackData = (newFeedbackData) => {
     let fbData = [newFeedbackData, ...feedback];
     setFeedback(fbData);
-    console.log('Data saved');
   };
 
   return (
