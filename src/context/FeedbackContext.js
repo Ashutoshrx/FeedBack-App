@@ -28,7 +28,7 @@ export const FeedbackProvider = ({ children }) => {
 
   // Posting a Feedback data to the database
   const appendFeedbackData = async (newFeedbackData) => {
-    await fetch(`/feedback`, {
+    await fetch(`${process.env.REACT_APP_URL}/feedback`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -77,7 +77,6 @@ export const FeedbackProvider = ({ children }) => {
         isEdit: false,
       }
     )
-    console.log('data updated');
   };
 
   return (
